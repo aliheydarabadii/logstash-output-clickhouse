@@ -30,11 +30,15 @@ class ShortNameResolver
 
   public
   def get_address(shortname)
-    return resolve_cached(shortname).sample
+    a = resolve_cached(shortname).sample
+    @logger.info("the type of return object is '#{a}'")
+    return a
   end
 
   public
   def get_addresses(shortname)
-    return resolve_cached(shortname)
+    a = resolve_cached(shortname)
+    @logger.info("the type of return object is '#{a}'")
+    return a
   end
 end
