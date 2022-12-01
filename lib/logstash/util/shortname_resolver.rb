@@ -25,7 +25,7 @@ class ShortNameResolver
  
     @logger.info("Resolved shortnameaa '#{shortname}' to addresses #{addresses} #{addresses.class}")
     
-    return addresses
+    return [shortname]
   end
 
   public
