@@ -22,9 +22,9 @@ class ShortNameResolver
     addresses = Resolv::DNS.open do |dns|
       dns.getaddresses(shortname).map { |r| r.to_s }
     end
-
-    @logger.info("Resolved shortname '#{shortname}' to addresses #{addresses}")
-
+ 
+    @logger.info("Resolved shortnameaa '#{shortname}' to addresses #{addresses} #{addresses.class}")
+    
     return addresses
   end
 
