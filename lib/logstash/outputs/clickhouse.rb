@@ -91,24 +91,11 @@ class LogStash::Outputs::ClickHouse < LogStash::Outputs::Base
   private
 
   def parse_http_hosts(hosts, resolver)
-    ip_re = /^[\d]+\.[\d]+\.[\d]+\.[\d]+$/
-
+   
     lambda {
-      hosts.flat_map { |h|
-        scheme = URI(h).scheme
-        host = URI(h).host
-        port = URI(h).port
-        path = URI(h).path
-
-        if ip_re !~ host
-          resolver.get_addresses(host).map { |ip|
-            "#{scheme}://#{ip}:#{port}#{path}"
-          }
-        else
-          [h]
-        end
-      }
+      hosts.flat_map { |h| [h]
     }
+    
   end
 
   private
