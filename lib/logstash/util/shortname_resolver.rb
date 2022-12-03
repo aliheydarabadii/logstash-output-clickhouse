@@ -1,4 +1,4 @@
-require 'resolv'
+
 require 'mini_cache'
 
 class ShortNameResolver
@@ -19,12 +19,6 @@ class ShortNameResolver
 
   private
   def resolve(shortname)
-    addresses = Resolv::DNS.open do |dns|
-      dns.getaddresses(shortname).map { |r| r.to_s }
-    end
- 
-    @logger.info("Resolved shortnameaa '#{shortname}' to addresses #{addresses} #{addresses.class}")
-    
     return [shortname]
   end
 
