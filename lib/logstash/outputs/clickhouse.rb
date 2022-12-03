@@ -1,3 +1,33 @@
+
+Skip to content
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+@aliheydarabadii
+sergei3000 /
+logstash-output-clickhouse
+Public
+forked from funcmike/logstash-output-clickhouse
+
+Code
+Pull requests
+Actions
+Projects
+Security
+
+    Insights
+
+logstash-output-clickhouse/lib/logstash/outputs/clickhouse.rb /
+Krzysztof Majk return src on empty mutations
+Latest commit 269d039 Nov 29, 2019
+History
+3 contributors
+@gothug
+@akzhan
+@xtrueman
+280 lines (223 sloc) 7.91 KB
 # encoding: utf-8
 require "logstash/outputs/base"
 require "logstash/namespace"
@@ -91,8 +121,9 @@ class LogStash::Outputs::ClickHouse < LogStash::Outputs::Base
   private
 
   def parse_http_hosts(hosts, resolver)
-   
-     lambda {
+    ip_re = /^[\d]+\.[\d]+\.[\d]+\.[\d]+$/
+
+    lambda {
       hosts.flat_map { |h|
         scheme = URI(h).scheme
         host = URI(h).host
@@ -108,7 +139,6 @@ class LogStash::Outputs::ClickHouse < LogStash::Outputs::Base
         end
       }
     }
-    
   end
 
   private
@@ -278,3 +308,20 @@ class LogStash::Outputs::ClickHouse < LogStash::Outputs::Base
   end
 
 end
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+logstash-output-clickhouse/clickhouse.rb at master · sergei3000/logstash-output-clickhouse
