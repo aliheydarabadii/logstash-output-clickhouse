@@ -10,7 +10,7 @@ USER root
 
 #RUN logstash-plugin install logstash-filter-json_encode \
 #    && logstash-plugin install logstash-filter-prune
-
+RUN logstash-plugin install logstash-filter-clone
     # 安装 rubygem（ruby 包管理器）
 RUN  yum install rubygems -y \
     # 删除默认的 rubygem 源地址
