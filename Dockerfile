@@ -22,6 +22,6 @@ RUN  yum install rubygems -y \
     && gem build logstash-output-clickhouse.gemspec \
     && logstash-plugin install logstash-output-clickhouse-0.1.5.gem \
     #&& rm -f ./clickhouse-plugin \
-    
+    RUN logstash-plugin install logstash-filter-json_encode    
  #   && ln -sv /usr/share/zoneinfo/Asia/Chongqing /etc/localtime \
   #  && echo "Asia/Chongqing" > /etc/timezone
