@@ -20,7 +20,7 @@ RUN  yum install rubygems -y \
     # 更新源的缓存
     && gem sources -u \
     && gem build logstash-output-clickhouse.gemspec \
-    &&  logstash-plugin install --no-verify logstash-output-clickhouse-0.1.6.gem
+    &&  logstash-plugin install --no-verify logstash-output-clickhouse-0.1.5.gem
     #&& logstash-plugin install logstash-output-clickhouse-0.1.6.gem \
     #&& rm -f ./clickhouse-plugin \
 RUN logstash-plugin install logstash-filter-json_encode
